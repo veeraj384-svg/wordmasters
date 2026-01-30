@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mixed Review • WordMasters Practice</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><div class="logo"></div><div>WordMasters Practice <small>Mixed Review</small></div></div>
+
+      <div class="nav">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="week1.html">Week 1</a>
+        <a class="pill" href="week2.html">Week 2</a>
+        <a class="pill" href="mixed_review.html">Mixed Review</a>
+        <a class="pill" href="vocab_dropdown_story.html">Story</a>
+        <a class="pill" href="games.html">Games</a>
+        <a class="pill" href="about.html">About</a>
+      </div>
+
+      <div class="right-tools">
+        <span id="teacherBadge" class="teacherBadge">TEACHER</span>
+        <div class="toggle">
+          <span id="teacherModeLabel">Student Mode</span>
+          <label class="switch">
+            <input id="teacherModeToggle" type="checkbox" />
+            <span class="knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Mixed Review</h1>
+      <p>Mix of Week 1 + Week 2 words in tricky contexts. Teacher Mode shows the key after checking.</p>
+    </div>
+
+    <div class="panel">
+      <h2 style="margin:0 0 10px">Questions</h2>
+      <div id="qwrap"></div>
+      <div class="hr"></div>
+      <button class="btn primary" onclick="check()">Check Answers</button>
+      <span class="muted" id="result" style="margin-left:10px"></span>
+    </div>
+
+    <div class="footer">Use this the night before a WordMasters meet.</div>
+  </div>
+
+  <script src="assets/app.js"></script>
+  <script>
+    const qs = [
+      {q:"Crossing the ______ of the house, she stepped inside.", choices:["threshold","tyrant","refuse","mettle"], a:0, e:"Threshold = doorway/entrance."},
+      {q:"He tried to ______ the difficult question by changing the subject.", choices:["evade","enact","establish","snicker"], a:0, e:"Evade = avoid/escape."},
+      {q:"They made an effort to stay ______ even after disagreeing.", choices:["amicable","sketchy","haggard","lax"], a:0, e:"Amicable = friendly/peaceful."},
+      {q:"The abandoned building looked ______ from the road.", choices:["derelict","rigorous","mundane","peaked"], a:0, e:"Derelict = abandoned/in poor condition."},
+      {q:"The teacher reminded everyone about proper ______ at the dinner.", choices:["etiquette","refuse","wrangle","mettle"], a:0, e:"Etiquette = polite behavior rules."}
+    ];
+
+    const qwrap = document.getElementById("qwrap");
+
+    function build(){
+      qwrap.innerHTML = "";
+      qs.forEach((x, idx)=>{
+        const div = document.createElement("div");
+        div.className = "panel";
+        div.style.marginBottom = "12px";
+        div.innerHTML = `
+          <div><strong>${idx+1}.</strong> ${x.q}</div>
+          <div style="margin-top:10px">
+            <select id="sel${idx}">
+              ${x.choices.map(c=>`<option value="${c}">${c}</option>`).join("")}
+            </select>
+          </div>
+          <div class="small muted" id="exp${idx}" style="margin-top:10px; display:none;"></div>
+        `;
+        qwrap.appendChild(div);
+      });
+    }
+
+    function check(){
+      let correct = 0;
+      const teacherOn = localStorage.getItem("wm_teacher_mode") === "1";
+
+      qs.forEach((x, idx)=>{
+        const val = document.getElementById("sel"+idx).value;
+        const exp = document.getElementById("exp"+idx);
+        if(val === x.choices[x.a]) correct++;
+
+        if(teacherOn){
+          exp.style.display = "block";
+          exp.innerHTML = `<div class="notice teacher"><div><strong>Answer:</strong> ${x.choices[x.a]}<div class="small muted" style="margin-top:6px">${x.e}</div></div></div>`;
+        } else {
+          exp.style.display = "none";
+          exp.innerHTML = "";
+        }
+      });
+
+      document.getElementById("result").textContent = `${correct}/${qs.length} correct`;
+    }
+
+    build();
+  </script>
+</body>
+</html>
