@@ -3,35 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dropdown Story • WordMasters Practice</title>
+  <title>Story • WordMasters Practice</title>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
+<body data-page="story">
+  <div class="bg-glow"></div>
+
   <div class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><div class="logo"></div><div>WordMasters Practice <small>Dropdown Story</small></div></div>
+      <div class="brand">
+        <div id="siteLogo" class="logo" aria-label="Site logo"></div>
+        <div>WordMasters Practice <small>Story</small></div>
+      </div>
 
       <div class="nav">
         <a class="pill" href="index.html">Home</a>
         <a class="pill" href="week1.html">Week 1</a>
         <a class="pill" href="week2.html">Week 2</a>
         <a class="pill" href="mixed_review.html">Mixed Review</a>
-        <a class="pill" href="vocab_dropdown_story.html">Story</a>
+        <a class="pill is-active" href="vocab_dropdown_story.html">Story</a>
         <a class="pill" href="games.html">Games</a>
         <a class="pill" href="about.html">About</a>
-      </div>
-
-      <div class="right-tools">
-        <span id="teacherBadge" class="teacherBadge">TEACHER</span>
-
-        <!-- Hidden unless unlocked by typing: toggle -->
-        <div class="toggle">
-          <span id="teacherModeLabel">Student Mode</span>
-          <label class="switch">
-            <input id="teacherModeToggle" type="checkbox" />
-            <span class="knob"></span>
-          </label>
-        </div>
       </div>
     </div>
   </div>
@@ -39,204 +31,29 @@
   <div class="container">
     <div class="hero">
       <h1>Dropdown Story Challenge</h1>
-      <p>
-        Pick the best word for each blank. All dropdowns start with <strong>Choose…</strong>.
-        Teacher Mode adds a “Fill Key” button.
-      </p>
+      <p>Fill in the blanks with the best vocabulary words in context.</p>
     </div>
 
-    <div class="panel" id="story">
-      <h2 style="margin:0 0 10px">Story: “The Museum After Hours”</h2>
-
-      <p>
-        The night guard relied on pure
-        <select data-ans="stamina">
-          <option value="" selected>Choose…</option>
-          <option>stamina</option><option>mettle</option><option>etiquette</option><option>refuse</option>
-        </select>
-        to stay alert until morning.
-      </p>
-
-      <p>
-        A newcomer made a small
-        <select data-ans="faux pas">
-          <option value="" selected>Choose…</option>
-          <option>faux pas</option><option>threshold</option><option>disposition</option><option>wrangle</option>
-        </select>
-        by loudly joking in the quiet gallery, forgetting basic
-        <select data-ans="etiquette">
-          <option value="" selected>Choose…</option>
-          <option>etiquette</option><option>refuse</option><option>snicker</option><option>peaked</option>
-        </select>.
-      </p>
-
-      <p>
-        When the alarm suddenly
-        <select data-ans="peaked">
-          <option value="" selected>Choose…</option>
-          <option>peaked</option><option>amicable</option><option>lax</option><option>mundane</option>
-        </select>,
-        the guard didn’t
-        <select data-ans="shirk">
-          <option value="" selected>Choose…</option>
-          <option>shirk</option><option>enact</option><option>evade</option><option>snicker</option>
-        </select>
-        the job. Instead, with real
-        <select data-ans="mettle">
-          <option value="" selected>Choose…</option>
-          <option>mettle</option><option>refuse</option><option>threshold</option><option>disposition</option>
-        </select>,
-        the guard calmly checked each room.
-      </p>
-
-      <p>
-        In a hallway, a group began to
-        <select data-ans="bicker">
-          <option value="" selected>Choose…</option>
-          <option>bicker</option><option>establish</option><option>enact</option><option>evade</option>
-        </select>
-        about whose turn it was to sweep up the
-        <select data-ans="refuse">
-          <option value="" selected>Choose…</option>
-          <option>refuse</option><option>threshold</option><option>mundane</option><option>sketchy</option>
-        </select>
-        from a broken snack bag.
-      </p>
-
-      <p>
-        The manager tried to
-        <select data-ans="establish">
-          <option value="" selected>Choose…</option>
-          <option>establish</option><option>snicker</option><option>evade</option><option>sneer</option>
-        </select>
-        a fair schedule, but one employee tried to
-        <select data-ans="domineer">
-          <option value="" selected>Choose…</option>
-          <option>domineer</option><option>amicable</option><option>lax</option><option>mundane</option>
-        </select>
-        the group like a
-        <select data-ans="tyrant">
-          <option value="" selected>Choose…</option>
-          <option>tyrant</option><option>derelict</option><option>threshold</option><option>disposition</option>
-        </select>.
-      </p>
-
-      <p>
-        The guard kept the conversation
-        <select data-ans="amicable">
-          <option value="" selected>Choose…</option>
-          <option>amicable</option><option>sketchy</option><option>haggard</option><option>rigorous</option>
-        </select>
-        and refused to
-        <select data-ans="sneer">
-          <option value="" selected>Choose…</option>
-          <option>sneer</option><option>snicker</option><option>wrangle</option><option>enact</option>
-        </select>
-        at anyone, even when someone started to
-        <select data-ans="snicker">
-          <option value="" selected>Choose…</option>
-          <option>snicker</option><option>establish</option><option>evade</option><option>refuse</option>
-        </select>.
-      </p>
-
-      <p>
-        Near the
-        <select data-ans="threshold">
-          <option value="" selected>Choose…</option>
-          <option>threshold</option><option>derelict</option><option>refuse</option><option>peaked</option>
-        </select>
-        of the storage room, the lights flickered. The guard noticed a
-        <select data-ans="sketchy">
-          <option value="" selected>Choose…</option>
-          <option>sketchy</option><option>amicable</option><option>mundane</option><option>rigorous</option>
-        </select>
-        shadow and chose to
-        <select data-ans="evade">
-          <option value="" selected>Choose…</option>
-          <option>evade</option><option>enact</option><option>wrangle</option><option>establish</option>
-        </select>
-        the situation safely by calling for backup.
-      </p>
-
-      <p>
-        The old display case looked
-        <select data-ans="derelict">
-          <option value="" selected>Choose…</option>
-          <option>derelict</option><option>rigorous</option><option>lax</option><option>mundane</option>
-        </select>,
-        and the guard—looking a bit
-        <select data-ans="haggard">
-          <option value="" selected>Choose…</option>
-          <option>haggard</option><option>amicable</option><option>sketchy</option><option>peaked</option>
-        </select>
-        by dawn—decided the museum needed more
-        <select data-ans="rigorous">
-          <option value="" selected>Choose…</option>
-          <option>rigorous</option><option>lax</option><option>mundane</option><option>snicker</option>
-        </select>
-        safety checks (not
-        <select data-ans="lax">
-          <option value="" selected>Choose…</option>
-          <option>lax</option><option>rigorous</option><option>amicable</option><option>mettle</option>
-        </select>
-        ones).
-      </p>
-
-      <p>
-        Later, the team had to
-        <select data-ans="wrangle">
-          <option value="" selected>Choose…</option>
-          <option>wrangle</option><option>enact</option><option>evade</option><option>snicker</option>
-        </select>
-        the new plan into place and finally
-        <select data-ans="enact">
-          <option value="" selected>Choose…</option>
-          <option>enact</option><option>establish</option><option>domineer</option><option>sneer</option>
-        </select>
-        the updated rules—so future nights wouldn’t feel so
-        <select data-ans="mundane">
-          <option value="" selected>Choose…</option>
-          <option>mundane</option><option>sketchy</option><option>haggard</option><option>tyrant</option>
-        </select>.
-      </p>
-
-      <div class="hr"></div>
-      <div class="row">
-        <button class="btn primary" onclick="checkStory()">Check</button>
-        <button class="btn warn" onclick="fillKey()" data-teacher-only>Fill Key (Teacher)</button>
-        <span class="muted" id="storyResult"></span>
+    <div class="panel">
+      <div class="actions">
+        <div class="actions-left">
+          <button class="btn primary" id="checkBtn">Check</button>
+          <button class="btn ghost" id="resetBtn">Reset</button>
+        </div>
+        <div id="scoreLine" class="small-note"></div>
       </div>
 
-      <div class="notice teacher" id="teacherNote" data-teacher-only style="margin-top:12px; display:none;">
-        <div><strong>Teacher Tip</strong>Ask: “What clue in the sentence makes that word fit best?”</div>
-      </div>
+      <div class="divider"></div>
+
+      <h2 id="storyTitle" style="margin:0 0 10px;">Story</h2>
+      <div id="storyText" class="story-text"></div>
     </div>
 
-    <div class="footer">Not about you — just a story for context clues. Teacher Mode is hidden unless you know the trick.</div>
+    <div class="footer">© WordMasters Practice</div>
   </div>
 
   <script src="assets/app.js"></script>
-  <script>
-    function checkStory(){
-      const selects = document.querySelectorAll("#story select");
-      let total = selects.length;
-      let correct = 0;
-
-      selects.forEach(s=>{
-        const ans = s.getAttribute("data-ans");
-        if(s.value === ans) correct++;
-      });
-
-      document.getElementById("storyResult").textContent = `${correct}/${total} correct`;
-    }
-
-    function fillKey(){
-      const selects = document.querySelectorAll("#story select");
-      selects.forEach(s=> s.value = s.getAttribute("data-ans"));
-      document.getElementById("storyResult").textContent = `Key filled.`;
-      document.getElementById("teacherNote").style.display = "flex";
-    }
-  </script>
 </body>
 </html>
+
 
