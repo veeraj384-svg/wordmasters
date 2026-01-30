@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Week 1 • WordMasters Practice</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><div class="logo"></div><div>WordMasters Practice <small>Week 1</small></div></div>
+
+      <div class="nav">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="week1.html">Week 1</a>
+        <a class="pill" href="week2.html">Week 2</a>
+        <a class="pill" href="mixed_review.html">Mixed Review</a>
+        <a class="pill" href="vocab_dropdown_story.html">Story</a>
+        <a class="pill" href="games.html">Games</a>
+        <a class="pill" href="about.html">About</a>
+      </div>
+
+      <div class="right-tools">
+        <span id="teacherBadge" class="teacherBadge">TEACHER</span>
+        <div class="toggle">
+          <span id="teacherModeLabel">Student Mode</span>
+          <label class="switch">
+            <input id="teacherModeToggle" type="checkbox" />
+            <span class="knob"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Week 1 — Context Practice</h1>
+      <p>Choose the best word for each sentence. Teacher Mode shows answers + explanations.</p>
+    </div>
+
+    <div class="panel">
+      <h2 style="margin:0 0 10px">Questions</h2>
+      <div id="qwrap"></div>
+      <div class="hr"></div>
+      <button class="btn primary" onclick="check()">Check Answers</button>
+      <span class="muted" id="result" style="margin-left:10px"></span>
+
+      <div class="notice teacher" data-teacher-only style="margin-top:14px;">
+        <div><strong>Teacher Key</strong>Click “Check Answers” to show explanations.</div>
+      </div>
+    </div>
+
+    <div class="footer">Week 2 is harder (more trap choices).</div>
+  </div>
+
+  <script src="assets/app.js"></script>
+  <script>
+    const qs = [
+      {q:"The explorer needed ______ to keep going after hours of hiking.", choices:["stamina","faux pas","refuse","etiquette"], a:0, e:"Stamina = endurance/energy over time."},
+      {q:"We tried to ______ the crowd by leaving through the side door.", choices:["enact","evade","domineer","snicker"], a:1, e:"Evade = avoid/escape."},
+      {q:"The website looked ______, so we didn’t trust it.", choices:["amicable","sketchy","rigorous","mundane"], a:1, e:"Sketchy = suspicious, unreliable."},
+      {q:"The ______ demanded everyone follow his rules.", choices:["tyrant","threshold","disposition","refuse"], a:0, e:"Tyrant = cruel/oppressive ruler."},
+      {q:"Don’t ______ your responsibilities just because it’s hard.", choices:["shirk","peak","bicker","sneer"], a:0, e:"Shirk = avoid duties."}
+    ];
+
+    const qwrap = document.getElementById("qwrap");
+
+    function build(){
+      qwrap.innerHTML = "";
+      qs.forEach((x, idx)=>{
+        const div = document.createElement("div");
+        div.className = "panel";
+        div.style.marginBottom = "12px";
+        div.innerHTML = `
+          <div><strong>${idx+1}.</strong> ${x.q}</div>
+          <div style="margin-top:10px">
+            <select id="sel${idx}">
+              ${x.choices.map(c=>`<option value="${c}">${c}</option>`).join("")}
+            </select>
+          </div>
+          <div class="small muted" id="exp${idx}" style="margin-top:10px; display:none;"></div>
+        `;
+        qwrap.appendChild(div);
+      });
+    }
+
+    function check(){
+      let correct = 0;
+      const teacherOn = localStorage.getItem("wm_teacher_mode") === "1";
+
+      qs.forEach((x, idx)=>{
+        const val = document.getElementById("sel"+idx).value;
+        const exp = document.getElementById("exp"+idx);
+        if(val === x.choices[x.a]) correct++;
+
+        if(teacherOn){
+          exp.style.display = "block";
+          exp.innerHTML = `<div class="notice teacher"><div><strong>Answer:</strong> ${x.choices[x.a]}<div class="small muted" style="margin-top:6px">${x.e}</div></div></div>`;
+        } else {
+          exp.style.display = "none";
+          exp.innerHTML = "";
+        }
+      });
+
+      document.getElementById("result").textContent = `${correct}/${qs.length} correct`;
+    }
+
+    build();
+  </script>
+</body>
+</html>
