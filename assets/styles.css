@@ -1,9 +1,6 @@
 /* =========================================================
    WordMasters Practice — Professional Dark / Glass Theme
-   - Tight nav spacing
-   - Purplish + Green vibe
-   - Professional typography & spacing
-   - Supports #qwrap question shells
+   Purplish + Green vibe, tight nav spacing, pro typography
    ========================================================= */
 
 *,
@@ -67,13 +64,12 @@ button, input, select, textarea { font: inherit; }
   filter: saturate(118%);
 }
 
-/* Layout container */
 .container{
   width: min(var(--max), calc(100% - (var(--pad) * 2)));
   margin: 0 auto;
 }
 
-/* ---------- Topbar / Nav (supports your existing class names) ---------- */
+/* ---------- Topbar / Nav ---------- */
 .topbar{
   position: sticky;
   top: 0;
@@ -83,7 +79,6 @@ button, input, select, textarea { font: inherit; }
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* your existing "topbar-inner" */
 .topbar-inner{
   width: min(var(--max), calc(100% - (var(--pad) * 2)));
   margin: 0 auto;
@@ -94,7 +89,6 @@ button, input, select, textarea { font: inherit; }
   padding: 12px 0;
 }
 
-/* Brand + logo top-left */
 .brand{
   display: flex;
   align-items: center;
@@ -112,7 +106,6 @@ button, input, select, textarea { font: inherit; }
   margin-top: 2px;
 }
 
-/* IMPORTANT: logo is hold-to-toggle target */
 .logo{
   width: 34px;
   height: 34px;
@@ -126,16 +119,14 @@ button, input, select, textarea { font: inherit; }
   user-select: none;
 }
 
-/* Nav buttons closer together */
 .nav{
   display: flex;
   align-items: center;
-  gap: 6px; /* tighter */
+  gap: 6px; /* closer together */
   flex-wrap: wrap;
   justify-content: flex-end;
 }
 
-/* Pill style */
 .pill{
   display: inline-flex;
   align-items: center;
@@ -160,9 +151,6 @@ button, input, select, textarea { font: inherit; }
   border-color: rgba(124,92,255,0.40);
   box-shadow: 0 14px 30px rgba(124,92,255,0.12);
 }
-
-/* Hide any old right-tools if they still exist */
-.right-tools{ display:none !important; }
 
 /* ---------- Hero ---------- */
 .hero{
@@ -189,7 +177,7 @@ button, input, select, textarea { font: inherit; }
   line-height: 1.6;
 }
 
-/* ---------- Panels (your week pages use .panel) ---------- */
+/* ---------- Panel / content blocks ---------- */
 .panel{
   margin-top: 18px;
   padding: 18px;
@@ -206,38 +194,27 @@ button, input, select, textarea { font: inherit; }
   letter-spacing: 0.1px;
 }
 
-/* Question card style (applies to items you append into #qwrap) */
-.q{
-  padding: 14px;
-  border-radius: var(--r-md);
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.04);
-  margin-bottom: 12px;
+.divider{
+  height: 1px;
+  background: rgba(255,255,255,0.10);
+  margin: 14px 0;
 }
 
-.q .prompt{
-  margin: 0 0 10px;
-  font-weight: 800;
-  color: rgba(234,240,255,0.95);
-  line-height: 1.45;
+.actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.q .sub{
-  margin: 0 0 12px;
-  color: var(--muted);
-  line-height: 1.6;
+.actions-left{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-/* Dropdowns should not span full width by default */
-select{
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: rgba(234,240,255,0.92);
-  padding: 10px 12px;
-}
-
-/* Buttons */
+/* ---------- Buttons ---------- */
 .btn{
   display: inline-flex;
   align-items: center;
@@ -267,10 +244,95 @@ select{
   border-color: rgba(124,92,255,0.46);
 }
 
-/* Teacher-only visibility (no UI, just class-based) */
-.hidden{ display:none !important; }
+.btn.ghost{
+  background: transparent;
+}
 
-/* Story inline blanks */
+/* ---------- Inputs ---------- */
+select, input, textarea{
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(234,240,255,0.92);
+  padding: 10px 12px;
+}
+
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible{ outline: none; box-shadow: var(--ring); }
+
+/* ---------- Question blocks ---------- */
+.q{
+  padding: 14px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  margin-bottom: 12px;
+}
+
+.qhead{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.qnum{
+  font-weight: 950;
+  color: rgba(234,240,255,0.92);
+}
+
+.prompt{
+  margin: 8px 0 10px;
+  font-weight: 850;
+  color: rgba(234,240,255,0.95);
+  line-height: 1.5;
+}
+
+.qmeta{
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.row{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.small-note{
+  color: var(--faint);
+  font-size: 0.92rem;
+}
+
+/* feedback */
+.correct-badge{
+  color: rgba(76,217,100,0.95);
+  font-weight: 900;
+}
+.wrong-badge{
+  color: rgba(255,77,109,0.95);
+  font-weight: 900;
+}
+
+.explain{
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.explain .label{
+  font-weight: 950;
+  color: rgba(234,240,255,0.93);
+}
+
+/* ---------- Story: inline blanks ---------- */
 .story-text{
   font-size: 1.06rem;
   line-height: 2.0;
@@ -298,9 +360,16 @@ select{
   font-weight: 850;
 }
 
+.blank-select:focus-visible{
+  outline: none;
+  box-shadow: none;
+  border-bottom-color: rgba(124,92,255,0.75);
+}
+
 .blank-select.is-correct{ border-bottom-color: rgba(76,217,100,0.85); }
 .blank-select.is-wrong{ border-bottom-color: rgba(255,77,109,0.85); }
 
+/* ---------- Footer ---------- */
 .footer{
   padding: 24px 0 38px;
   color: rgba(234,240,255,0.55);
@@ -308,9 +377,12 @@ select{
   text-align: center;
 }
 
+.hidden{ display:none !important; }
+
 @media (max-width: 900px){
   .brand{ min-width: unset; }
 }
+
 
 
 
