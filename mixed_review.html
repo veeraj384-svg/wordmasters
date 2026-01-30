@@ -7,124 +7,46 @@
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
+  <div class="bg-glow"></div>
+
   <div class="topbar">
     <div class="topbar-inner">
-      <div class="brand"><div class="logo"></div><div>WordMasters Practice <small>Mixed Review</small></div></div>
+      <div class="brand">
+        <div id="siteLogo" class="logo" aria-label="Site logo"></div>
+        <div>
+          WordMasters Practice
+          <small>Mixed Review</small>
+        </div>
+      </div>
 
       <div class="nav">
         <a class="pill" href="index.html">Home</a>
         <a class="pill" href="week1.html">Week 1</a>
         <a class="pill" href="week2.html">Week 2</a>
-        <a class="pill" href="mixed_review.html">Mixed Review</a>
+        <a class="pill is-active" href="mixed_review.html">Mixed Review</a>
         <a class="pill" href="vocab_dropdown_story.html">Story</a>
         <a class="pill" href="games.html">Games</a>
         <a class="pill" href="about.html">About</a>
-      </div>
-
-      <div class="right-tools">
-        <span id="teacherBadge" class="teacherBadge">TEACHER</span>
-        <div class="toggle">
-          <span id="teacherModeLabel">Student Mode</span>
-          <label class="switch">
-            <input id="teacherModeToggle" type="checkbox" />
-            <span class="knob"></span>
-          </label>
-        </div>
       </div>
     </div>
   </div>
 
   <div class="container">
     <div class="hero">
-      <h1>Mixed Review</h1>
-      <p>Mix of meanings and context. Dropdowns start with none.</p>
+      <h1>Mixed Review — Context Practice</h1>
+      <p>Practice across weeks for stronger recall.</p>
     </div>
 
     <div class="panel">
-      <h2 style="margin:0 0 10px">Questions</h2>
+      <h2>Questions</h2>
       <div id="qwrap"></div>
-
-      <div class="hr"></div>
-      <button class="btn primary" onclick="check()">Check Answers</button>
-      <span class="muted" id="result" style="margin-left:10px"></span>
     </div>
 
-    <div class="footer">Secret Teacher Mode: double-click the logo OR type “teach”.</div>
+    <div class="footer">© WordMasters Practice</div>
   </div>
 
   <script src="assets/app.js"></script>
-  <script>
-    const qs = [
-      {q:"Crossing the ______, she stepped into the house.", choices:["threshold","tyrant","refuse","mettle"], a:"threshold",
-       e:"Threshold = the entrance/doorway."},
-
-      {q:"The building was ______, with broken windows and no one living there.", choices:["derelict","amicable","rigorous","mundane"], a:"derelict",
-       e:"Derelict = abandoned and in bad condition."},
-
-      {q:"The group tried to stay ______ and end the argument peacefully.", choices:["amicable","sketchy","haggard","lax"], a:"amicable",
-       e:"Amicable = friendly and peaceful."},
-
-      {q:"At the end of the meal, they threw the ______ into the trash.", choices:["refuse","mettle","threshold","etiquette"], a:"refuse",
-       e:"Refuse = garbage/trash."},
-
-      {q:"They had to ______ about who would carry the heavy boxes.", choices:["wrangle","snicker","enact","peaked"], a:"wrangle",
-       e:"Wrangle = argue or wrestle with a problem."}
-    ];
-
-    const qwrap = document.getElementById("qwrap");
-    const teacherOn = () => localStorage.getItem("wm_teacher_mode") === "1";
-
-    function build(){
-      qwrap.innerHTML = "";
-      qs.forEach((x, idx)=>{
-        const div = document.createElement("div");
-        div.className = "panel";
-        div.style.marginBottom = "12px";
-
-        const shuffled = [...x.choices].sort(()=> Math.random()-0.5);
-
-        div.innerHTML = `
-          <div><strong>${idx+1}.</strong> ${x.q}</div>
-          <div style="margin-top:10px">
-            <select id="sel${idx}">
-              <option value="" selected>Choose…</option>
-              ${shuffled.map(c=>`<option value="${c}">${c}</option>`).join("")}
-            </select>
-          </div>
-          <div class="small muted" id="exp${idx}" style="margin-top:10px; display:none;"></div>
-        `;
-        qwrap.appendChild(div);
-      });
-    }
-
-    function check(){
-      let correct = 0;
-      qs.forEach((x, idx)=>{
-        const val = document.getElementById("sel"+idx).value;
-        const exp = document.getElementById("exp"+idx);
-
-        if(val === x.a) correct++;
-
-        if(teacherOn()){
-          exp.style.display = "block";
-          exp.innerHTML = `
-            <div class="notice teacher">
-              <div>
-                <strong>Answer:</strong> ${x.a}
-                <div class="small muted" style="margin-top:6px">${x.e}</div>
-              </div>
-            </div>`;
-        } else {
-          exp.style.display = "none";
-          exp.innerHTML = "";
-        }
-      });
-
-      document.getElementById("result").textContent = `${correct}/${qs.length} correct`;
-    }
-
-    build();
-  </script>
 </body>
 </html>
+
 
