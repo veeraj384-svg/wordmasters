@@ -37,31 +37,40 @@
   <div class="container">
     <div class="hero">
       <h1>Week 2 — Harder Traps</h1>
-      <p>Similar choices + tricky meaning. Teacher Mode shows answer keys and why.</p>
+      <p>Similar meanings, but only one fits best. Dropdowns start with none.</p>
     </div>
 
     <div class="panel">
       <h2 style="margin:0 0 10px">Questions</h2>
       <div id="qwrap"></div>
+
       <div class="hr"></div>
       <button class="btn primary" onclick="check()">Check Answers</button>
       <span class="muted" id="result" style="margin-left:10px"></span>
     </div>
-
-    <div class="footer">Now try Mixed Review for a competition-style mix.</div>
   </div>
 
   <script src="assets/app.js"></script>
   <script>
     const qs = [
-      {q:"He showed real ______ by staying calm under pressure.", choices:["mettle","refuse","threshold","snicker"], a:0, e:"Mettle = courage/strength of character."},
-      {q:"The meeting felt ______ until the surprise announcement.", choices:["mundane","rigorous","sketchy","haggard"], a:0, e:"Mundane = ordinary/boring."},
-      {q:"The rules were too ______, so people started breaking them.", choices:["lax","rigorous","amicable","peaked"], a:0, e:"Lax = not strict enough."},
-      {q:"After the long trip, he looked ______ and exhausted.", choices:["haggard","amicable","rigorous","derelict"], a:0, e:"Haggard = worn out, tired-looking."},
-      {q:"They began to ______ about who started the argument.", choices:["bicker","enact","evade","establish"], a:0, e:"Bicker = argue about small things."}
+      {q:"He showed real ______ by staying calm under pressure.", choices:["mettle","refuse","threshold","snicker"], a:"mettle",
+       e:"Mettle = courage and strength of character."},
+
+      {q:"The boss tried to ______ everyone and make all decisions alone.", choices:["domineer","evade","bicker","enact"], a:"domineer",
+       e:"Domineer = to control others in an overbearing way."},
+
+      {q:"The argument got worse when they began to ______ over small details.", choices:["bicker","establish","peaked","wrangle"], a:"bicker",
+       e:"Bicker = argue about minor matters."},
+
+      {q:"The rules were so ______ that students took advantage of them.", choices:["lax","rigorous","amicable","mundane"], a:"lax",
+       e:"Lax = not strict."},
+
+      {q:"After the long day, he looked ______ and worn out.", choices:["haggard","amicable","rigorous","sketchy"], a:"haggard",
+       e:"Haggard = exhausted and looking unwell/tired."}
     ];
 
     const qwrap = document.getElementById("qwrap");
+    const teacherOn = () => localStorage.getItem("wm_teacher_mode") === "1";
 
     function build(){
       qwrap.innerHTML = "";
@@ -69,11 +78,14 @@
         const div = document.createElement("div");
         div.className = "panel";
         div.style.marginBottom = "12px";
+        const shuffled = [...x.choices].sort(()=> Math.random()-0.5);
+
         div.innerHTML = `
           <div><strong>${idx+1}.</strong> ${x.q}</div>
           <div style="margin-top:10px">
             <select id="sel${idx}">
-              ${x.choices.map(c=>`<option value="${c}">${c}</option>`).join("")}
+              <option value="" selected>Choose…</option>
+              ${shuffled.map(c=>`<option value="${c}">${c}</option>`).join("")}
             </select>
           </div>
           <div class="small muted" id="exp${idx}" style="margin-top:10px; display:none;"></div>
@@ -84,16 +96,21 @@
 
     function check(){
       let correct = 0;
-      const teacherOn = localStorage.getItem("wm_teacher_mode") === "1";
-
       qs.forEach((x, idx)=>{
         const val = document.getElementById("sel"+idx).value;
         const exp = document.getElementById("exp"+idx);
-        if(val === x.choices[x.a]) correct++;
 
-        if(teacherOn){
+        if(val === x.a) correct++;
+
+        if(teacherOn()){
           exp.style.display = "block";
-          exp.innerHTML = `<div class="notice teacher"><div><strong>Answer:</strong> ${x.choices[x.a]}<div class="small muted" style="margin-top:6px">${x.e}</div></div></div>`;
+          exp.innerHTML = `
+            <div class="notice teacher">
+              <div>
+                <strong>Answer:</strong> ${x.a}
+                <div class="small muted" style="margin-top:6px">${x.e}</div>
+              </div>
+            </div>`;
         } else {
           exp.style.display = "none";
           exp.innerHTML = "";
@@ -107,3 +124,4 @@
   </script>
 </body>
 </html>
+
