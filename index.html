@@ -4,14 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WordMasters Practice</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Cache-bust so GitHub Pages + browser show updates immediately -->
+  <link rel="stylesheet" href="assets/styles.css?v=100" />
 </head>
+
 <body data-page="home">
   <div class="bg-glow"></div>
 
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">
+        <!-- Logo top-left. Press & hold 7 seconds toggles hidden teacher mode -->
         <div id="siteLogo" class="logo" aria-label="Site logo"></div>
         <div>
           WordMasters Practice
@@ -92,9 +96,11 @@
     <div class="footer">© WordMasters Practice</div>
   </div>
 
-  <script src="assets/app.js"></script>
+  <!-- Cache-bust JS too -->
+  <script src="assets/app.js?v=100"></script>
 </body>
 </html>
+
 
 
 
