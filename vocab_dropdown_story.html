@@ -23,6 +23,8 @@
 
       <div class="right-tools">
         <span id="teacherBadge" class="teacherBadge">TEACHER</span>
+
+        <!-- Hidden unless unlocked by typing: toggle -->
         <div class="toggle">
           <span id="teacherModeLabel">Student Mode</span>
           <label class="switch">
@@ -38,86 +40,197 @@
     <div class="hero">
       <h1>Dropdown Story Challenge</h1>
       <p>
-        Fill the story using the best word in context. In Teacher Mode, you can reveal the key.
+        Pick the best word for each blank. All dropdowns start with <strong>Choose…</strong>.
+        Teacher Mode adds a “Fill Key” button.
       </p>
     </div>
 
     <div class="panel" id="story">
-      <h2 style="margin:0 0 10px">Story</h2>
+      <h2 style="margin:0 0 10px">Story: “The Museum After Hours”</h2>
 
       <p>
-        After practicing tennis for hours, Veeraj needed real
+        The night guard relied on pure
         <select data-ans="stamina">
-          <option value="">Choose…</option>
-          <option>stamina</option><option>etiquette</option><option>refuse</option><option>threshold</option>
+          <option value="" selected>Choose…</option>
+          <option>stamina</option><option>mettle</option><option>etiquette</option><option>refuse</option>
         </select>
-        to finish the last drill.
+        to stay alert until morning.
       </p>
 
       <p>
-        On the way home, he tried to
-        <select data-ans="evade">
-          <option value="">Choose…</option>
-          <option>domineer</option><option>evade</option><option>bicker</option><option>enact</option>
+        A newcomer made a small
+        <select data-ans="faux pas">
+          <option value="" selected>Choose…</option>
+          <option>faux pas</option><option>threshold</option><option>disposition</option><option>wrangle</option>
         </select>
-        a crowd by taking a side path, but the shortcut looked a bit
-        <select data-ans="sketchy">
-          <option value="">Choose…</option>
-          <option>amicable</option><option>sketchy</option><option>rigorous</option><option>mundane</option>
+        by loudly joking in the quiet gallery, forgetting basic
+        <select data-ans="etiquette">
+          <option value="" selected>Choose…</option>
+          <option>etiquette</option><option>refuse</option><option>snicker</option><option>peaked</option>
         </select>.
       </p>
 
       <p>
-        A bossy older kid acted like a
-        <select data-ans="tyrant">
-          <option value="">Choose…</option>
-          <option>tyrant</option><option>threshold</option><option>disposition</option><option>refuse</option>
-        </select>
-        and tried to
-        <select data-ans="domineer">
-          <option value="">Choose…</option>
-          <option>domineer</option><option>snicker</option><option>establish</option><option>shirk</option>
-        </select>
-        everyone. Veeraj didn’t
+        When the alarm suddenly
+        <select data-ans="peaked">
+          <option value="" selected>Choose…</option>
+          <option>peaked</option><option>amicable</option><option>lax</option><option>mundane</option>
+        </select>,
+        the guard didn’t
         <select data-ans="shirk">
-          <option value="">Choose…</option>
-          <option>shirk</option><option>enact</option><option>wrangle</option><option>sneer</option>
+          <option value="" selected>Choose…</option>
+          <option>shirk</option><option>enact</option><option>evade</option><option>snicker</option>
         </select>
-        his responsibility — he calmly asked for better
-        <select data-ans="etiquette">
-          <option value="">Choose…</option>
-          <option>etiquette</option><option>refuse</option><option>peaked</option><option>derelict</option>
+        the job. Instead, with real
+        <select data-ans="mettle">
+          <option value="" selected>Choose…</option>
+          <option>mettle</option><option>refuse</option><option>threshold</option><option>disposition</option>
+        </select>,
+        the guard calmly checked each room.
+      </p>
+
+      <p>
+        In a hallway, a group began to
+        <select data-ans="bicker">
+          <option value="" selected>Choose…</option>
+          <option>bicker</option><option>establish</option><option>enact</option><option>evade</option>
+        </select>
+        about whose turn it was to sweep up the
+        <select data-ans="refuse">
+          <option value="" selected>Choose…</option>
+          <option>refuse</option><option>threshold</option><option>mundane</option><option>sketchy</option>
+        </select>
+        from a broken snack bag.
+      </p>
+
+      <p>
+        The manager tried to
+        <select data-ans="establish">
+          <option value="" selected>Choose…</option>
+          <option>establish</option><option>snicker</option><option>evade</option><option>sneer</option>
+        </select>
+        a fair schedule, but one employee tried to
+        <select data-ans="domineer">
+          <option value="" selected>Choose…</option>
+          <option>domineer</option><option>amicable</option><option>lax</option><option>mundane</option>
+        </select>
+        the group like a
+        <select data-ans="tyrant">
+          <option value="" selected>Choose…</option>
+          <option>tyrant</option><option>derelict</option><option>threshold</option><option>disposition</option>
+        </select>.
+      </p>
+
+      <p>
+        The guard kept the conversation
+        <select data-ans="amicable">
+          <option value="" selected>Choose…</option>
+          <option>amicable</option><option>sketchy</option><option>haggard</option><option>rigorous</option>
+        </select>
+        and refused to
+        <select data-ans="sneer">
+          <option value="" selected>Choose…</option>
+          <option>sneer</option><option>snicker</option><option>wrangle</option><option>enact</option>
+        </select>
+        at anyone, even when someone started to
+        <select data-ans="snicker">
+          <option value="" selected>Choose…</option>
+          <option>snicker</option><option>establish</option><option>evade</option><option>refuse</option>
+        </select>.
+      </p>
+
+      <p>
+        Near the
+        <select data-ans="threshold">
+          <option value="" selected>Choose…</option>
+          <option>threshold</option><option>derelict</option><option>refuse</option><option>peaked</option>
+        </select>
+        of the storage room, the lights flickered. The guard noticed a
+        <select data-ans="sketchy">
+          <option value="" selected>Choose…</option>
+          <option>sketchy</option><option>amicable</option><option>mundane</option><option>rigorous</option>
+        </select>
+        shadow and chose to
+        <select data-ans="evade">
+          <option value="" selected>Choose…</option>
+          <option>evade</option><option>enact</option><option>wrangle</option><option>establish</option>
+        </select>
+        the situation safely by calling for backup.
+      </p>
+
+      <p>
+        The old display case looked
+        <select data-ans="derelict">
+          <option value="" selected>Choose…</option>
+          <option>derelict</option><option>rigorous</option><option>lax</option><option>mundane</option>
+        </select>,
+        and the guard—looking a bit
+        <select data-ans="haggard">
+          <option value="" selected>Choose…</option>
+          <option>haggard</option><option>amicable</option><option>sketchy</option><option>peaked</option>
+        </select>
+        by dawn—decided the museum needed more
+        <select data-ans="rigorous">
+          <option value="" selected>Choose…</option>
+          <option>rigorous</option><option>lax</option><option>mundane</option><option>snicker</option>
+        </select>
+        safety checks (not
+        <select data-ans="lax">
+          <option value="" selected>Choose…</option>
+          <option>lax</option><option>rigorous</option><option>amicable</option><option>mettle</option>
+        </select>
+        ones).
+      </p>
+
+      <p>
+        Later, the team had to
+        <select data-ans="wrangle">
+          <option value="" selected>Choose…</option>
+          <option>wrangle</option><option>enact</option><option>evade</option><option>snicker</option>
+        </select>
+        the new plan into place and finally
+        <select data-ans="enact">
+          <option value="" selected>Choose…</option>
+          <option>enact</option><option>establish</option><option>domineer</option><option>sneer</option>
+        </select>
+        the updated rules—so future nights wouldn’t feel so
+        <select data-ans="mundane">
+          <option value="" selected>Choose…</option>
+          <option>mundane</option><option>sketchy</option><option>haggard</option><option>tyrant</option>
         </select>.
       </p>
 
       <div class="hr"></div>
       <div class="row">
         <button class="btn primary" onclick="checkStory()">Check</button>
-        <button class="btn warn" onclick="showKey()" data-teacher-only>Fill Key (Teacher)</button>
+        <button class="btn warn" onclick="fillKey()" data-teacher-only>Fill Key (Teacher)</button>
         <span class="muted" id="storyResult"></span>
       </div>
 
       <div class="notice teacher" id="teacherNote" data-teacher-only style="margin-top:12px; display:none;">
-        <div><strong>Teacher Note</strong>Use this to discuss context clues and why distractors don’t fit.</div>
+        <div><strong>Teacher Tip</strong>Ask: “What clue in the sentence makes that word fit best?”</div>
       </div>
     </div>
 
-    <div class="footer">Teacher Mode ON → “Fill Key” appears. Teacher Mode OFF → student-only.</div>
+    <div class="footer">Not about you — just a story for context clues. Teacher Mode is hidden unless you know the trick.</div>
   </div>
 
   <script src="assets/app.js"></script>
   <script>
     function checkStory(){
       const selects = document.querySelectorAll("#story select");
+      let total = selects.length;
       let correct = 0;
+
       selects.forEach(s=>{
-        if(s.value === s.getAttribute("data-ans")) correct++;
+        const ans = s.getAttribute("data-ans");
+        if(s.value === ans) correct++;
       });
-      document.getElementById("storyResult").textContent = `${correct}/${selects.length} correct`;
+
+      document.getElementById("storyResult").textContent = `${correct}/${total} correct`;
     }
 
-    function showKey(){
-      // only available when Teacher Mode is ON because of data-teacher-only CSS
+    function fillKey(){
       const selects = document.querySelectorAll("#story select");
       selects.forEach(s=> s.value = s.getAttribute("data-ans"));
       document.getElementById("storyResult").textContent = `Key filled.`;
@@ -126,3 +239,4 @@
   </script>
 </body>
 </html>
+
