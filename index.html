@@ -4,23 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WordMasters Practice</title>
-
-  <!-- Cache-bust so GitHub Pages + browser show updates immediately -->
-  <link rel="stylesheet" href="assets/styles.css?v=100" />
+  <link rel="stylesheet" href="assets/styles.css?v=601" />
 </head>
-
-<body data-page="home">
+<body>
   <div class="bg-glow"></div>
 
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <!-- Logo top-left. Press & hold 7 seconds toggles hidden teacher mode -->
-        <div id="siteLogo" class="logo" aria-label="Site logo"></div>
-        <div>
-          WordMasters Practice
-          <small>Vocabulary • Context • Games • Weekly Sets</small>
-        </div>
+        <div class="logo" aria-label="Site logo"></div>
+        <div>WordMasters Practice <small>Vocabulary • Context • Weekly Sets</small></div>
       </div>
 
       <div class="nav">
@@ -39,8 +32,8 @@
     <div class="hero">
       <h1>Practice smarter. Learn faster.</h1>
       <p>
-        Weekly sets, mixed review, a dropdown story challenge, and fast drills —
-        built for WordMasters-style vocabulary in context.
+        HTML-only practice site built from your 25-word list. Choose answers, then tap “Show answer & explanation”
+        when you’re ready to check.
       </p>
     </div>
 
@@ -49,12 +42,22 @@
 
       <div class="q">
         <div class="qhead">
-          <div class="qnum">Weekly Sets</div>
-          <div class="small-note">Competition-style context questions</div>
+          <div class="qnum">Week 1</div>
+          <div class="small-note">Words 1–13</div>
         </div>
-        <div class="prompt">Train accuracy with tricky choices.</div>
+        <div class="prompt">Stamina through peaked</div>
         <div class="row">
           <a class="btn primary" href="week1.html">Open Week 1</a>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="qhead">
+          <div class="qnum">Week 2</div>
+          <div class="small-note">Words 14–25</div>
+        </div>
+        <div class="prompt">Refuse through wrangle</div>
+        <div class="row">
           <a class="btn primary" href="week2.html">Open Week 2</a>
         </div>
       </div>
@@ -62,9 +65,9 @@
       <div class="q">
         <div class="qhead">
           <div class="qnum">Mixed Review</div>
-          <div class="small-note">Better retention across weeks</div>
+          <div class="small-note">All 25 words</div>
         </div>
-        <div class="prompt">Combine sets for stronger recall.</div>
+        <div class="prompt">Full set review</div>
         <div class="row">
           <a class="btn primary" href="mixed_review.html">Open Mixed Review</a>
         </div>
@@ -73,34 +76,16 @@
       <div class="q">
         <div class="qhead">
           <div class="qnum">Dropdown Story</div>
-          <div class="small-note">Vocabulary in context</div>
+          <div class="small-note">Use words in context</div>
         </div>
-        <div class="prompt">Fill a story with the best words.</div>
+        <div class="prompt">Fill the blanks with the best word.</div>
         <div class="row">
           <a class="btn primary" href="vocab_dropdown_story.html">Open Story</a>
-        </div>
-      </div>
-
-      <div class="q">
-        <div class="qhead">
-          <div class="qnum">Games</div>
-          <div class="small-note">Speed + accuracy drills</div>
-        </div>
-        <div class="prompt">Short practice when time is tight.</div>
-        <div class="row">
-          <a class="btn primary" href="games.html">Go to Games</a>
         </div>
       </div>
     </div>
 
     <div class="footer">© WordMasters Practice</div>
   </div>
-
-  <!-- Cache-bust JS too -->
-  <script src="assets/app.js?v=100"></script>
 </body>
 </html>
-
-
-
-
